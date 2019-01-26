@@ -11,7 +11,7 @@
 		33656F5721DAE32B008E3EEA /* ComponentLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F5621DAE32B008E3EEA /* ComponentLibraryTests.swift */; };
 		33656F5921DAE32B008E3EEA /* ComponentLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 33656F4B21DAE32B008E3EEA /* ComponentLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33656F7121E4413D008E3EEA /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F7021E4413D008E3EEA /* Button.swift */; };
-		33656F7621E44580008E3EEA /* UIColor+CL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F7521E44580008E3EEA /* UIColor+CL.swift */; };
+		33656F7621E44580008E3EEA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F7521E44580008E3EEA /* Color.swift */; };
 		33656F9221E6C75F008E3EEA /* ButtonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F9121E6C75F008E3EEA /* ButtonModels.swift */; };
 		33656F9421E6C769008E3EEA /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F9321E6C769008E3EEA /* ButtonFactory.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,7 @@
 		33656F5621DAE32B008E3EEA /* ComponentLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentLibraryTests.swift; sourceTree = "<group>"; };
 		33656F5821DAE32B008E3EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33656F7021E4413D008E3EEA /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		33656F7521E44580008E3EEA /* UIColor+CL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CL.swift"; sourceTree = "<group>"; };
+		33656F7521E44580008E3EEA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		33656F9121E6C75F008E3EEA /* ButtonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModels.swift; sourceTree = "<group>"; };
 		33656F9321E6C769008E3EEA /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,7 +125,7 @@
 		33656F7421E4456F008E3EEA /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				33656F7521E44580008E3EEA /* UIColor+CL.swift */,
+				33656F7521E44580008E3EEA /* Color.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 				33656F7121E4413D008E3EEA /* Button.swift in Sources */,
 				33656F9221E6C75F008E3EEA /* ButtonModels.swift in Sources */,
 				33656F9421E6C769008E3EEA /* ButtonFactory.swift in Sources */,
-				33656F7621E44580008E3EEA /* UIColor+CL.swift in Sources */,
+				33656F7621E44580008E3EEA /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

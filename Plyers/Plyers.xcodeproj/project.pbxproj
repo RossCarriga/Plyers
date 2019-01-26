@@ -16,6 +16,8 @@
 		33656F3321DAE1FF008E3EEA /* PlyersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F3221DAE1FF008E3EEA /* PlyersTests.swift */; };
 		33656F8C21E6C719008E3EEA /* ComponentLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33656F6821E44088008E3EEA /* ComponentLibrary.framework */; };
 		33656F8D21E6C719008E3EEA /* ComponentLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33656F6821E44088008E3EEA /* ComponentLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33C149FF21FC18DD0040356A /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C149FC21FC154C0040356A /* NetworkKit.framework */; };
+		33C14A0021FC18DD0040356A /* NetworkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33C149FC21FC154C0040356A /* NetworkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,27 @@
 			remoteGlobalIDString = 33656F4721DAE32B008E3EEA;
 			remoteInfo = ComponentLibrary;
 		};
+		33C149FB21FC154C0040356A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33C149F521FC154C0040356A /* NetworkKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33C149DB21FC151A0040356A;
+			remoteInfo = NetworkKit;
+		};
+		33C149FD21FC154C0040356A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33C149F521FC154C0040356A /* NetworkKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33C149E421FC151A0040356A;
+			remoteInfo = NetworkKitTests;
+		};
+		33C14A0121FC18DD0040356A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33C149F521FC154C0040356A /* NetworkKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 33C149DA21FC151A0040356A;
+			remoteInfo = NetworkKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +79,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				33C14A0021FC18DD0040356A /* NetworkKit.framework in Embed Frameworks */,
 				33656F8D21E6C719008E3EEA /* ComponentLibrary.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -76,6 +100,7 @@
 		33656F3221DAE1FF008E3EEA /* PlyersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlyersTests.swift; sourceTree = "<group>"; };
 		33656F3421DAE1FF008E3EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33656F6221E44088008E3EEA /* ComponentLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ComponentLibrary.xcodeproj; path = ../ComponentLibrary/ComponentLibrary.xcodeproj; sourceTree = "<group>"; };
+		33C149F521FC154C0040356A /* NetworkKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkKit.xcodeproj; path = ../NetworkKit/NetworkKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C149FF21FC18DD0040356A /* NetworkKit.framework in Frameworks */,
 				33656F8C21E6C719008E3EEA /* ComponentLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +130,7 @@
 				33656F3121DAE1FF008E3EEA /* PlyersTests */,
 				33656F1821DAE1FD008E3EEA /* Products */,
 				33656F6221E44088008E3EEA /* ComponentLibrary.xcodeproj */,
+				33C149F521FC154C0040356A /* NetworkKit.xcodeproj */,
 				33656F7221E442CC008E3EEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -120,6 +147,7 @@
 		33656F1921DAE1FD008E3EEA /* Plyers */ = {
 			isa = PBXGroup;
 			children = (
+				336E8F6421FCCBE9008A5B84 /* Networking */,
 				33656F3D21DAE216008E3EEA /* Root */,
 				33656F2421DAE1FF008E3EEA /* Assets.xcassets */,
 				33656F2921DAE1FF008E3EEA /* Info.plist */,
@@ -164,6 +192,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		336E8F6421FCCBE9008A5B84 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		33C149F621FC154C0040356A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C149FC21FC154C0040356A /* NetworkKit.framework */,
+				33C149FE21FC154C0040356A /* NetworkKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,6 +224,7 @@
 			);
 			dependencies = (
 				33656F8F21E6C719008E3EEA /* PBXTargetDependency */,
+				33C14A0221FC18DD0040356A /* PBXTargetDependency */,
 			);
 			name = Plyers;
 			productName = Plyers;
@@ -239,6 +284,10 @@
 					ProductGroup = 33656F6321E44088008E3EEA /* Products */;
 					ProjectRef = 33656F6221E44088008E3EEA /* ComponentLibrary.xcodeproj */;
 				},
+				{
+					ProductGroup = 33C149F621FC154C0040356A /* Products */;
+					ProjectRef = 33C149F521FC154C0040356A /* NetworkKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -261,6 +310,20 @@
 			fileType = wrapper.cfbundle;
 			path = ComponentLibraryTests.xctest;
 			remoteRef = 33656F6921E44088008E3EEA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		33C149FC21FC154C0040356A /* NetworkKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NetworkKit.framework;
+			remoteRef = 33C149FB21FC154C0040356A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		33C149FE21FC154C0040356A /* NetworkKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NetworkKitTests.xctest;
+			remoteRef = 33C149FD21FC154C0040356A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -316,6 +379,11 @@
 			isa = PBXTargetDependency;
 			name = ComponentLibrary;
 			targetProxy = 33656F8E21E6C719008E3EEA /* PBXContainerItemProxy */;
+		};
+		33C14A0221FC18DD0040356A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NetworkKit;
+			targetProxy = 33C14A0121FC18DD0040356A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

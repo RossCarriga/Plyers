@@ -41,14 +41,14 @@ class ButtonFactory {
     public func getStyles(for style: ButtonStyle) -> ButtonStyleModel {
         switch style {
         case .pill:
-            let backgroundColor = UIColor.AppTheme.darkPurple
-            let textColor = UIColor.AppTheme.white
+            let backgroundColor = Color.darkPurple
+            let textColor = Color.white
             return ButtonStyleModel(backgroundColor: backgroundColor,
                                     textColor: textColor)
             
         case .text:
             let backgroundColor = UIColor.clear
-            let textColor = UIColor.AppTheme.primaryPurple
+            let textColor = Color.primaryPurple
             return ButtonStyleModel(backgroundColor: backgroundColor,
                                     textColor: textColor)
         }
