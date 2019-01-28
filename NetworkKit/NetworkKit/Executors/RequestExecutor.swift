@@ -8,34 +8,62 @@
 
 import Foundation
 
-class RequestExecutor<Endpoint: DataEndpoint>: NetworkExecutable {
+public class RequestExecutor<Endpoint: RequestEndpoint>: NetworkExecutable {
     
     private var task: URLSessionTask?
     
-    func request(_ route: Endpoint, _ completion: @escaping NetworkRequestCompletion) {
-        let session = URLSession.shared
+    public init() {}
+    
+    public func request(_ route: Endpoint, _ completion: @escaping (Result<Data>) -> Void) {
         do {
             let request = try self.buildRequest(from: route)
-            task = session.dataTask(with: request, completionHandler: { data, response, error in
-                completion(data, response, error)
-            })
+            try execute(request: request) { (result) in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                case .error(let error):
+                    completion(.error(error))
+                }
+            }
         } catch {
-            completion(nil, nil, error)
+            completion(.error(error))
         }
         
         self.task?.resume()
     }
     
-    func cancel() {
+    public func cancel() {
         self.task?.cancel()
     }
 }
 
 fileprivate extension RequestExecutor {
+    
+    func execute(request: URLRequest, _ completion: @escaping (Result<Data>) -> Void) throws {
+        let session = URLSession.shared
+        
+        task = session.dataTask(with: request, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                completion(.error(error))
+                return
+            }
+            
+            let validator = TaskPostProcessValidator()
+            let validationResult = validator.validate(data: data, response: response)
+            
+            completion(validationResult)
+        })
+    }
+    
+    
+    
     func buildRequest(from route: Endpoint) throws -> URLRequest {
+        
         var request = URLRequest(url: route.host.appendingPathComponent(route.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                 timeoutInterval: 30.0)
+                                 timeoutInterval: 10.0)
+        
         request.httpMethod = route.method.rawValue
         do {
             switch route.task {
@@ -43,16 +71,13 @@ fileprivate extension RequestExecutor {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 
             case .requestParameters(let bodyParameters, let urlParameters):
-                
                 try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, for: &request)
                 
             case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
-                
                 self.addAdditionalHeaders(additionalHeaders, for: &request)
                 try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, for: &request)
             }
         }
-        
         return request
     }
     

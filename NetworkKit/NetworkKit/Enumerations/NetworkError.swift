@@ -10,6 +10,11 @@ import Foundation
 
 public enum NetworkError: Error {
     case invalidRequest
+    case invalidResponseData
     case encoderFailure
     case decoderFailure
+    case authenticationFailure
+    case fileLoadingFailure
+    case undefinedFailure
+    case invalidDataFailure
 }

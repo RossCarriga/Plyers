@@ -8,10 +8,8 @@
 
 import Foundation
 
-public typealias NetworkRequestCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
-
-protocol NetworkExecutable: class {
-    associatedtype Endpoint: DataEndpoint
-    func request(_ route: Endpoint, _ completion: @escaping NetworkRequestCompletion)
+public protocol NetworkExecutable: class {
+    associatedtype Endpoint: RequestEndpoint
+    func request(_ route: Endpoint, _ completion: @escaping (Result<Data>) -> Void)
     func cancel()
 }

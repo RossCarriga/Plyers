@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum HTTPTask {
+public enum HTTPTask {
     case request
     
     case requestParameters(bodyParameters: HTTPParameters?,

@@ -16,8 +16,13 @@
 		33656F3321DAE1FF008E3EEA /* PlyersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F3221DAE1FF008E3EEA /* PlyersTests.swift */; };
 		33656F8C21E6C719008E3EEA /* ComponentLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33656F6821E44088008E3EEA /* ComponentLibrary.framework */; };
 		33656F8D21E6C719008E3EEA /* ComponentLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33656F6821E44088008E3EEA /* ComponentLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		336E8F6821FCCFB9008A5B84 /* Enviroments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E8F6721FCCFB9008A5B84 /* Enviroments.swift */; };
+		336E8F6D21FCD4E1008A5B84 /* IEXRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E8F6C21FCD4E1008A5B84 /* IEXRequests.swift */; };
+		336E8F6F21FCEAC7008A5B84 /* IEXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E8F6E21FCEAC7008A5B84 /* IEXService.swift */; };
 		33C149FF21FC18DD0040356A /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C149FC21FC154C0040356A /* NetworkKit.framework */; };
 		33C14A0021FC18DD0040356A /* NetworkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33C149FC21FC154C0040356A /* NetworkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33E88CCB21FE7D39007A9CB8 /* MVVMBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E88CC721FE7D23007A9CB8 /* MVVMBaseKit.framework */; };
+		33E88CCC21FE7D39007A9CB8 /* MVVMBaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33E88CC721FE7D23007A9CB8 /* MVVMBaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,27 @@
 			remoteGlobalIDString = 33C149DA21FC151A0040356A;
 			remoteInfo = NetworkKit;
 		};
+		33E88CC621FE7D23007A9CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33E88CC021FE7D22007A9CB8 /* MVVMBaseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33E88CA621FE7D05007A9CB8;
+			remoteInfo = MVVMBaseKit;
+		};
+		33E88CC821FE7D23007A9CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33E88CC021FE7D22007A9CB8 /* MVVMBaseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33E88CAF21FE7D05007A9CB8;
+			remoteInfo = MVVMBaseKitTests;
+		};
+		33E88CCD21FE7D39007A9CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33E88CC021FE7D22007A9CB8 /* MVVMBaseKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 33E88CA521FE7D05007A9CB8;
+			remoteInfo = MVVMBaseKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +106,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				33C14A0021FC18DD0040356A /* NetworkKit.framework in Embed Frameworks */,
+				33E88CCC21FE7D39007A9CB8 /* MVVMBaseKit.framework in Embed Frameworks */,
 				33656F8D21E6C719008E3EEA /* ComponentLibrary.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -100,7 +127,11 @@
 		33656F3221DAE1FF008E3EEA /* PlyersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlyersTests.swift; sourceTree = "<group>"; };
 		33656F3421DAE1FF008E3EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33656F6221E44088008E3EEA /* ComponentLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ComponentLibrary.xcodeproj; path = ../ComponentLibrary/ComponentLibrary.xcodeproj; sourceTree = "<group>"; };
+		336E8F6721FCCFB9008A5B84 /* Enviroments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroments.swift; sourceTree = "<group>"; };
+		336E8F6C21FCD4E1008A5B84 /* IEXRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEXRequests.swift; sourceTree = "<group>"; };
+		336E8F6E21FCEAC7008A5B84 /* IEXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEXService.swift; sourceTree = "<group>"; };
 		33C149F521FC154C0040356A /* NetworkKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkKit.xcodeproj; path = ../NetworkKit/NetworkKit.xcodeproj; sourceTree = "<group>"; };
+		33E88CC021FE7D22007A9CB8 /* MVVMBaseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MVVMBaseKit.xcodeproj; path = ../MVVMBaseKit/MVVMBaseKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33C149FF21FC18DD0040356A /* NetworkKit.framework in Frameworks */,
+				33E88CCB21FE7D39007A9CB8 /* MVVMBaseKit.framework in Frameworks */,
 				33656F8C21E6C719008E3EEA /* ComponentLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +163,7 @@
 				33656F1821DAE1FD008E3EEA /* Products */,
 				33656F6221E44088008E3EEA /* ComponentLibrary.xcodeproj */,
 				33C149F521FC154C0040356A /* NetworkKit.xcodeproj */,
+				33E88CC021FE7D22007A9CB8 /* MVVMBaseKit.xcodeproj */,
 				33656F7221E442CC008E3EEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -195,8 +228,19 @@
 		336E8F6421FCCBE9008A5B84 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				336E8F6B21FCD4CB008A5B84 /* Enums */,
+				336E8F6E21FCEAC7008A5B84 /* IEXService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		336E8F6B21FCD4CB008A5B84 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				336E8F6721FCCFB9008A5B84 /* Enviroments.swift */,
+				336E8F6C21FCD4E1008A5B84 /* IEXRequests.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		33C149F621FC154C0040356A /* Products */ = {
@@ -204,6 +248,15 @@
 			children = (
 				33C149FC21FC154C0040356A /* NetworkKit.framework */,
 				33C149FE21FC154C0040356A /* NetworkKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33E88CC121FE7D22007A9CB8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33E88CC721FE7D23007A9CB8 /* MVVMBaseKit.framework */,
+				33E88CC921FE7D23007A9CB8 /* MVVMBaseKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,6 +278,7 @@
 			dependencies = (
 				33656F8F21E6C719008E3EEA /* PBXTargetDependency */,
 				33C14A0221FC18DD0040356A /* PBXTargetDependency */,
+				33E88CCE21FE7D39007A9CB8 /* PBXTargetDependency */,
 			);
 			name = Plyers;
 			productName = Plyers;
@@ -285,6 +339,10 @@
 					ProjectRef = 33656F6221E44088008E3EEA /* ComponentLibrary.xcodeproj */;
 				},
 				{
+					ProductGroup = 33E88CC121FE7D22007A9CB8 /* Products */;
+					ProjectRef = 33E88CC021FE7D22007A9CB8 /* MVVMBaseKit.xcodeproj */;
+				},
+				{
 					ProductGroup = 33C149F621FC154C0040356A /* Products */;
 					ProjectRef = 33C149F521FC154C0040356A /* NetworkKit.xcodeproj */;
 				},
@@ -326,6 +384,20 @@
 			remoteRef = 33C149FD21FC154C0040356A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		33E88CC721FE7D23007A9CB8 /* MVVMBaseKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MVVMBaseKit.framework;
+			remoteRef = 33E88CC621FE7D23007A9CB8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		33E88CC921FE7D23007A9CB8 /* MVVMBaseKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MVVMBaseKitTests.xctest;
+			remoteRef = 33E88CC821FE7D23007A9CB8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -353,8 +425,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336E8F6F21FCEAC7008A5B84 /* IEXService.swift in Sources */,
 				33656F2321DAE1FD008E3EEA /* Plyers.xcdatamodeld in Sources */,
 				33656F1D21DAE1FD008E3EEA /* ViewController.swift in Sources */,
+				336E8F6D21FCD4E1008A5B84 /* IEXRequests.swift in Sources */,
+				336E8F6821FCCFB9008A5B84 /* Enviroments.swift in Sources */,
 				33656F1B21DAE1FD008E3EEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +459,11 @@
 			isa = PBXTargetDependency;
 			name = NetworkKit;
 			targetProxy = 33C14A0121FC18DD0040356A /* PBXContainerItemProxy */;
+		};
+		33E88CCE21FE7D39007A9CB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MVVMBaseKit;
+			targetProxy = 33E88CCD21FE7D39007A9CB8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

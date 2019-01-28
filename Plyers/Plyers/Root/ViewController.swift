@@ -11,17 +11,15 @@ import ComponentLibrary
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var boiButton: Button!
-    @IBOutlet weak var coreButton: Button!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        boiButton.configure(with: "Button Component", style: .pill, size: .action)
+        let service = IEXService()
+        service.fetchStatModel(method: IEXRequest.stats(stock: "TM"))
         
-        coreButton.configure(with: "Core Button", style: .pill, size: .core)
+        print(service.statModel ?? "Failed")
     }
+
 }
 
 

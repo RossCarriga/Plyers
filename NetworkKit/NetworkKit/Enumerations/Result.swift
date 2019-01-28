@@ -22,23 +22,21 @@ public enum Result<T>{
 }
 
 extension Result {
-    public init(value: T?, error: Error? = nil) {
-        switch (value, error) {
-        case let (value?, _):
-            self = .success(value)
-        case let (nil, error?):
-            self = .error(error)
-        case (nil, nil):
-            self = .error(nil)
-        }
-    }
-    
     public var value: T? {
         switch self {
         case .success(let successValue):
             return successValue
         case .error:
             return nil
+        }
+    }
+    
+    public var error: Error? {
+        switch self {
+        case .success:
+            return nil
+        case .error(let error):
+            return error
         }
     }
 }
