@@ -17,19 +17,30 @@ public protocol Wireframe: class {
 
 public class BaseWireframe: Wireframe {
     
-    var viewInterface: ViewInterface?
-    
-    var viewModel: ViewModel? {
+    var _viewInterface: ViewInterface?
+    var viewInterface: ViewInterface {
+        if let __viewInterface = self._viewInterface {
+            return __viewInterface
+        }
         
-        if let __viewModel = self.viewModel {
+        let __viewInterface = buildViewInterface()
+        _viewInterface = __viewInterface
+        return __viewInterface
+    }
+    
+    var _viewModel: ViewModel?
+    var viewModel: ViewModel {
+        
+        if let __viewModel = self._viewModel {
             return __viewModel
         }
         
-        viewInterface = buildViewInterface()
         let __viewModel = buildViewModel()
         
-        guard let viewInterface = viewInterface else { return nil }
         viewInterface._viewModel = __viewModel
+        __viewModel._viewInterface = viewInterface
+        _viewModel = __viewModel
+        
         return __viewModel
     }
     

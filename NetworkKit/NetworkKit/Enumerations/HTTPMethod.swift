@@ -17,4 +17,5 @@ public enum HTTPMethod: String {
     case delete = "DELETE"
     case put = "PUT"
     case head = "HEAD"
+    case mock = "MOCK"
 }

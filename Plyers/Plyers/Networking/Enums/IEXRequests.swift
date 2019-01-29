@@ -24,11 +24,13 @@ public enum IEXRequest {
     case list                                               //https://api.iextrading.com/1.0/stock/market/list
     case chart(stock: String, timeframe: IEXTimeframe)      //https://api.iextrading.com/1.0/stock/aapl/chart/ytd
     case stats(stock: String)                               //https://api.iextrading.com/1.0/stock/aapl/stats
+    case mock(filename: String)
 }
 
 extension IEXRequest: RequestEndpoint {
     public var host: URL {
-        return URL(string: "https://api.iextrading.com/1.0/stock/")!
+//        return URL(string: "https://api.iextrading.com/1.0/stock/")!
+        return Bundle.main.url(forResource: "Mock", withExtension: "json")!
     }
     
     public var path: String {
@@ -41,11 +43,14 @@ extension IEXRequest: RequestEndpoint {
             
         case .list:
             return "stock/market/list"
+        
+        case .mock:
+            return ""
         }
     }
     
     public var method: HTTPMethod {
-        return .get
+        return .mock
     }
     
     public var query: [URLQueryItem]? {

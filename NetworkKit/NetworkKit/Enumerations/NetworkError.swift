@@ -17,4 +17,5 @@ public enum NetworkError: Error {
     case fileLoadingFailure
     case undefinedFailure
     case invalidDataFailure
+    case mockLoadingFailure
 }

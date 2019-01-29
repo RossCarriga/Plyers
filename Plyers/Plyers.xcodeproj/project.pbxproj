@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3318D4372200138E0032E841 /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3318D4362200138E0032E841 /* Mock.json */; };
 		33656F1B21DAE1FD008E3EEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F1A21DAE1FD008E3EEA /* AppDelegate.swift */; };
 		33656F1D21DAE1FD008E3EEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33656F1C21DAE1FD008E3EEA /* ViewController.swift */; };
 		33656F2021DAE1FD008E3EEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33656F1E21DAE1FD008E3EEA /* Main.storyboard */; };
@@ -115,6 +116,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3318D4362200138E0032E841 /* Mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 		33656F1721DAE1FD008E3EEA /* Plyers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plyers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33656F1A21DAE1FD008E3EEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33656F1C21DAE1FD008E3EEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				336E8F6B21FCD4CB008A5B84 /* Enums */,
 				336E8F6E21FCEAC7008A5B84 /* IEXService.swift */,
+				3318D4362200138E0032E841 /* Mock.json */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				33656F2821DAE1FF008E3EEA /* LaunchScreen.storyboard in Resources */,
 				33656F2521DAE1FF008E3EEA /* Assets.xcassets in Resources */,
 				33656F2021DAE1FD008E3EEA /* Main.storyboard in Resources */,
+				3318D4372200138E0032E841 /* Mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

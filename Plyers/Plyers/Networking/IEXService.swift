@@ -11,14 +11,18 @@ import NetworkKit
 
 struct IEXStatModel: Codable {
     var companyName: String?
-    var week52High: Double?
-    var week52Low: Double?
+    var week52high: Double?
+    var week52low: Double?
     var symbol: String?
 }
 
 class IEXService {
     
-    var statModel: IEXStatModel?
+    var statModel: IEXStatModel? {
+        didSet {
+            print(statModel?.companyName)
+        }
+    }
     
     func fetchStatModel(method: IEXRequest) {
         let executor = RequestExecutor<IEXRequest>()

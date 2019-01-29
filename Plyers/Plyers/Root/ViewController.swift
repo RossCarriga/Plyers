@@ -16,8 +16,7 @@ class ViewController: UIViewController {
         
         let service = IEXService()
         service.fetchStatModel(method: IEXRequest.stats(stock: "TM"))
-        
-        print(service.statModel ?? "Failed")
+    
     }
 
 }
