@@ -29,8 +29,16 @@ public enum IEXRequest {
 
 extension IEXRequest: RequestEndpoint {
     public var host: URL {
-//        return URL(string: "https://api.iextrading.com/1.0/stock/")!
-        return Bundle.main.url(forResource: "Mock", withExtension: "json")!
+        switch self {
+        case .stats:
+            return URL(string: "https://api.iextrading.com/1.0/stock/")!
+            
+        case .mock(let filename):
+            return Bundle.main.url(forResource: filename, withExtension: "json")!
+            
+        default:
+            fatalError("Not done yet!")
+        }
     }
     
     public var path: String {
@@ -50,7 +58,12 @@ extension IEXRequest: RequestEndpoint {
     }
     
     public var method: HTTPMethod {
-        return .mock
+        switch self {
+        case .mock:
+            return .mock
+        default:
+            return .get
+        }
     }
     
     public var query: [URLQueryItem]? {

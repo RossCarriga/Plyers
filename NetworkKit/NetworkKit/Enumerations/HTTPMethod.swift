@@ -11,6 +11,7 @@ import Foundation
 /// Enumeration defining valid HTTP verbs used within our data manager classes.
 /// This will prevent us from having to use stringly-typed variables when defining
 /// various request objects.
+
 public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"

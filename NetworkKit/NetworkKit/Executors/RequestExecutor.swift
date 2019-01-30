@@ -11,9 +11,23 @@ import Foundation
 public class RequestExecutor<Endpoint: RequestEndpoint>: NetworkExecutable {
     
     private var task: URLSessionTask?
+    private var builder: RequestBuilder<Endpoint>
+    private var validator: TaskValidator
     
-    public init() {}
+    public init() {
+        self.builder = RequestBuilder<Endpoint>()
+        self.validator = RequestValidator()
+    }
     
+    /// Public function exposing functionality for use.
+    ///
+    /// Mainly respsonsable for taking in information about the
+    /// desired request, kick off the operations, and return
+    /// a simple respresentation of the data recieved or error
+    /// encountered.
+    ///
+    /// - Parameter route: Passed in concrete model of type
+    ///     RequestEndpoint
     public func request(_ route: Endpoint, _ completion: @escaping (Result<Data>) -> Void) {
         do {
             try execute(route: route) { data, response, error  in
@@ -27,6 +41,7 @@ public class RequestExecutor<Endpoint: RequestEndpoint>: NetworkExecutable {
         self.task?.resume()
     }
     
+    /// Cancel the URLSessionTask.
     public func cancel() {
         self.task?.cancel()
     }
@@ -44,8 +59,10 @@ fileprivate extension RequestExecutor {
     ///     saved to the project with the URL to the mock entered as
     ///     the host value.
     func execute(route: Endpoint, _ completion: @escaping NetworkResponseCompletion) throws {
-        let request = try buildRequest(from: route)
+        // Build request
+        let request = try builder.build(with: route)
         
+        // Execute Request
         if route.method == .mock {
             executeMockRequest(with: route.host) { (data, response, error) in
                 completion(data, response, error)
@@ -58,6 +75,7 @@ fileprivate extension RequestExecutor {
         }
     }
     
+    /// Execution of live data task
     func executeDataTask(for request: URLRequest, _ completion: @escaping NetworkResponseCompletion) {
         let session = URLSession.shared
         
@@ -66,6 +84,10 @@ fileprivate extension RequestExecutor {
         })
     }
     
+    /// Execution used when testing or utilizing mock data.
+    ///
+    /// This will attempt to load data from a json at the given
+    /// `URL` value.
     func executeMockRequest(with url: URL, _ completion: @escaping NetworkResponseCompletion){
         do {
             let mockData = try Data(contentsOf: url)
@@ -82,58 +104,8 @@ fileprivate extension RequestExecutor {
             return .error(error)
         }
         
-        let validator = TaskPostProcessValidator()
         let validationResult = validator.validate(data: data, response: response)
         return validationResult
     }
-    
-    /// Builds a URLRequest that is ready for execution
-    ///
-    /// Note:
-    func buildRequest(from route: Endpoint) throws -> URLRequest {
-        
-        var request = URLRequest(url: route.host.appendingPathComponent(route.path),
-                                 cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                 timeoutInterval: 10.0)
-        
-        request.httpMethod = route.method.rawValue
-        do {
-            switch route.task {
-            case .request:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                
-            case .requestParameters(let bodyParameters, let urlParameters):
-                try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, for: &request)
-                
-            case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
-                self.addAdditionalHeaders(additionalHeaders, for: &request)
-                try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, for: &request)
-            }
-        }
-        return request
-    }
-    
-    /// encodes and appends parameters onto passed in URLRequest
-    func configureParameters(bodyParameters: HTTPParameters?, urlParameters: HTTPParameters?, for request: inout URLRequest) throws {
-        do {
-            
-            if let bodyParameters = bodyParameters {
-                try JSONParameterEncoder.encode(urlRequest: &request, with: bodyParameters)
-            }
-            
-            if let urlParameters = urlParameters {
-                try URLParameterEncoder.encode(urlRequest: &request, with: urlParameters)
-            }
-        } catch {
-            throw error
-        }
-    }
-    
-    /// Appends additional headers onto passed in URLRequest
-    func addAdditionalHeaders(_ headers: HTTPHeaders?, for request: inout URLRequest) {
-        guard let headers = headers else { return }
-        for (key, value) in headers {
-            request.setValue(value, forHTTPHeaderField: key)
-        }
-    }
+
 }

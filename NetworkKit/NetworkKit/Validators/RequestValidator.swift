@@ -1,5 +1,5 @@
 //
-//  TaskPostProcessValidator.swift
+//  RequestValidator.swift
 //  NetworkKit
 //
 //  Created by Ross Carrigan on 1/27/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TaskPostProcessValidator: TaskValidator {
+struct RequestValidator: TaskValidator {
     func validate(data: Data?, response: URLResponse?) -> Result<Data> {
         
         let dataValidationResult = validate(data: data)

@@ -16,6 +16,7 @@ import Foundation
 ///     -- Where there can be a successful response, but the return type is
 ///        nullable, use Result<T?>
 ///     -- If there is a server error then call the `.error` case passing in the `Error`
+
 public enum Result<T>{
     case success(T)
     case error(Error?)
