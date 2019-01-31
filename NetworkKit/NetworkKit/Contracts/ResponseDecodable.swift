@@ -11,6 +11,6 @@ import Foundation
 /// Defining functionality for decoding response codes in
 /// HTTP requests. values containing information or tasks
 /// can be passed, or errors if needed.
-public protocol ResponseStatusDecodable {
-    static func decode(status: Int) -> Result<Int>
+public protocol ResponseDecodable {
+    func decode(response: URLResponse) -> Result<URLResponse>
 }

@@ -14,6 +14,7 @@ public enum NetworkError: Error {
     case encoderFailure
     case decoderFailure
     case authenticationFailure
+    case serverFailure
     case fileLoadingFailure
     case undefinedFailure
     case invalidDataFailure

@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let service = IEXService()
-        service.fetchStatModel(method: IEXRequest.stats(stock: "TM"))
+        
+        service.fetchStatModel(method: IEXRequest.mock(filename: "Mock")
     
     }
 

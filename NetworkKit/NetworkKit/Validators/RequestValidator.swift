@@ -9,6 +9,15 @@
 import Foundation
 
 struct RequestValidator: TaskValidator {
+    
+    var responseDecoder: ResponseDecodable
+    
+    init() {
+        responseDecoder = ResponseDecoder()
+    }
+    /// Validates that a network task has yielded a valid
+    /// response, and data. This is to prevent basic data
+    /// processing from being required else where.
     func validate(data: Data?, response: URLResponse?) -> Result<Data> {
         
         let dataValidationResult = validate(data: data)
@@ -26,6 +35,7 @@ struct RequestValidator: TaskValidator {
         return .success(validatedData)
     }
     
+    /// Validation of the Data
     func validate(data: Data?) -> Result<Data> {
         guard let data = data else {
             return .error(NetworkError.invalidDataFailure)
@@ -34,12 +44,13 @@ struct RequestValidator: TaskValidator {
         return .success(data)
     }
     
+    /// Validation of the response
     func validate(response: URLResponse?) -> Result<URLResponse> {
         guard let response = response as? HTTPURLResponse else { return .error(NetworkError.invalidResponseData) }
-        let responseStatusResult = ResponseStatusDecoder.decode(status: response.statusCode)
+        let responseStatusResult = responseDecoder.decode(response: response)
         switch responseStatusResult {
-        case .success:
-            return .success(response)
+        case .success(let validResponse):
+            return .success(validResponse)
         case .error(let error):
             return .error(error)
         }

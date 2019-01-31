@@ -26,7 +26,7 @@ class IEXService {
     
     func fetchStatModel(method: IEXRequest) {
         let executor = RequestExecutor<IEXRequest>()
-        
+       
         executor.request(method) { (result) in
             switch result {
             case .success(let data):

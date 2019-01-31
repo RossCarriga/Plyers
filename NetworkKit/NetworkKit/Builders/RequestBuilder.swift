@@ -9,6 +9,10 @@
 import Foundation
 
 class RequestBuilder<Endpoint: RequestEndpoint>: NetworkBuildable {
+    
+    /// builds a usable piece of data for an executor
+    ///
+    /// - TODO: Decouple the return from URLRequest to a generic Result.
     func build(with route: Endpoint) throws -> URLRequest {
         var request = URLRequest(url: route.host.appendingPathComponent(route.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
@@ -23,6 +27,13 @@ class RequestBuilder<Endpoint: RequestEndpoint>: NetworkBuildable {
 
 fileprivate extension RequestBuilder {
     
+    /// Switches through the different types of tasks defined
+    /// and takes undergoes the required setup.
+    ///
+    /// - Parameter route: information given to define desired
+    ///     functionality
+    /// - Parameter request: Reference to the actionable items
+    ///     being built by this builder
     func handleRequestTasks(with route: Endpoint, for request: inout URLRequest) throws {
         do {
             switch route.task {

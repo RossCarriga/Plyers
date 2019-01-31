@@ -18,10 +18,8 @@ public struct JSONParameterEncoder: ParameterEncodable {
             if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             }
-            
         } catch {
             throw NetworkError.encoderFailure
         }
     }
-    
 }

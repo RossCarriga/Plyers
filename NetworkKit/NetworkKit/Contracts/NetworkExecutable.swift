@@ -12,6 +12,7 @@ typealias NetworkResponseCompletion = (Data?, URLResponse?, Error?) -> Void
 
 public protocol NetworkExecutable: class {
     associatedtype Endpoint: RequestEndpoint
+    
     func request(_ route: Endpoint, _ completion: @escaping (Result<Data>) -> Void)
     func cancel()
 }
